@@ -1,4 +1,13 @@
-import { cpSync, existsSync, mkdirSync, readdirSync, rmSync, statSync } from "node:fs";
+import {
+  cpSync,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  rmSync,
+  statSync,
+  writeFileSync
+} from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { spawnSync } from "node:child_process";
@@ -7,7 +16,8 @@ const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
 const repositoryRoot = path.resolve(currentDirectory, "..");
 const sourceDirectory = path.join(repositoryRoot, "src", "extension");
 const distDirectory = path.join(repositoryRoot, "dist");
-const extensionDirectory = path.join(distDirectory, "nebula-youtube-extension");
+const chromeExtensionDirectory = path.join(distDirectory, "nebula-youtube-extension");
+const safariExtensionDirectory = path.join(distDirectory, "nebula-youtube-extension-safari");
 const zipFilePath = path.join(distDirectory, "nebula-youtube-extension.zip");
 
 function ensureCleanDirectory(directory) {
@@ -38,10 +48,78 @@ function listFilesRecursively(directory, parentPrefix = "") {
   return files;
 }
 
+function readSourceFile(...relativeSegments) {
+  return readFileSync(path.join(sourceDirectory, ...relativeSegments), "utf8");
+}
+
+function shouldCopyExtensionPath(sourcePath) {
+  return path.basename(sourcePath) !== ".DS_Store";
+}
+
+function createSafariBackgroundBundle() {
+  const textSource = readSourceFile("lib", "text.js")
+    .replace(/export /g, "");
+  const matchingSource = readSourceFile("lib", "matching.js")
+    .replace(/import\s+\{[\s\S]*?\}\s+from\s+"\.\/text\.js";\n\n/, "")
+    .replace(/export /g, "");
+  const nebulaClientSource = readSourceFile("lib", "nebula-client.js")
+    .replace(/import\s+\{[\s\S]*?\}\s+from\s+"\.\/matching\.js";\n\n/, "")
+    .replace(/export /g, "");
+  const backgroundSource = readSourceFile("background.js")
+    .replace('import "./lib/runtime.js";\n', "")
+    .replace('import { NebulaClient } from "./lib/nebula-client.js";\n\n', "");
+
+  return [
+    'importScripts("./lib/runtime.js");',
+    "",
+    textSource.trim(),
+    "",
+    matchingSource.trim(),
+    "",
+    nebulaClientSource.trim(),
+    "",
+    backgroundSource.trim(),
+    ""
+  ].join("\n");
+}
+
+function writeJson(filePath, value) {
+  writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
+}
+
+function buildChromeExtension() {
+  ensureCleanDirectory(chromeExtensionDirectory);
+  cpSync(sourceDirectory, chromeExtensionDirectory, {
+    recursive: true,
+    filter: shouldCopyExtensionPath
+  });
+}
+
+function buildSafariExtension() {
+  ensureCleanDirectory(safariExtensionDirectory);
+  cpSync(sourceDirectory, safariExtensionDirectory, {
+    recursive: true,
+    filter: shouldCopyExtensionPath
+  });
+
+  const manifestPath = path.join(safariExtensionDirectory, "manifest.json");
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+
+  if (manifest.background?.type) {
+    delete manifest.background.type;
+  }
+
+  writeJson(manifestPath, manifest);
+  writeFileSync(
+    path.join(safariExtensionDirectory, "background.js"),
+    createSafariBackgroundBundle()
+  );
+}
+
 function createZip() {
   const result = spawnSync(
     "zip",
-    ["-qr", zipFilePath, "nebula-youtube-extension"],
+    ["-qr", zipFilePath, path.basename(chromeExtensionDirectory)],
     {
       cwd: distDirectory,
       stdio: "inherit"
@@ -54,14 +132,17 @@ function createZip() {
 }
 
 mkdirSync(distDirectory, { recursive: true });
-ensureCleanDirectory(extensionDirectory);
 removeIfExists(zipFilePath);
-
-cpSync(sourceDirectory, extensionDirectory, { recursive: true });
+buildChromeExtension();
+buildSafariExtension();
 createZip();
 
-console.log("Built extension files:");
-for (const file of listFilesRecursively(extensionDirectory)) {
+console.log("Built Chrome extension files:");
+for (const file of listFilesRecursively(chromeExtensionDirectory)) {
+  console.log(`- ${file}`);
+}
+console.log("Built Safari extension files:");
+for (const file of listFilesRecursively(safariExtensionDirectory)) {
   console.log(`- ${file}`);
 }
 console.log(`Created zip artifact: ${path.relative(repositoryRoot, zipFilePath)}`);

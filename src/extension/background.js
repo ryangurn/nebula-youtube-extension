@@ -1,16 +1,19 @@
+import "./lib/runtime.js";
 import { NebulaClient } from "./lib/nebula-client.js";
 
 const nebulaClient = new NebulaClient();
+const runtimeApi = globalThis.NebulaExtensionRuntime;
 
 function debug(event, payload) {
   console.debug("[Nebula Match][background]", event, payload);
 }
 
 debug("service-worker-loaded", {
-  location: self.location.href
+  location: self.location.href,
+  environment: runtimeApi.getEnvironment()
 });
 
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+runtimeApi.addMessageListener(async (message, sender) => {
   debug("message-received", {
     type: message?.type,
     sender: {
@@ -22,33 +25,26 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   if (!message || message.type !== "resolve-nebula-match") {
     debug("message-ignored", message);
-    return false;
+    return undefined;
   }
 
-  nebulaClient
-    .resolveMatch(message.context)
-    .then((result) => {
-      debug("message-resolved", result);
-      sendResponse({
-        ok: true,
-        result
-      });
-    })
-    .catch((error) => {
-      console.error("Nebula match resolution failed", {
-        error: error instanceof Error ? error.message : String(error),
-        sender
-      });
-      debug("message-failed", {
-        error: error instanceof Error ? error.message : String(error),
-        stack: error instanceof Error ? error.stack : null
-      });
-
-      sendResponse({
-        ok: false,
-        error: error instanceof Error ? error.message : String(error)
-      });
+  try {
+    const result = await nebulaClient.resolveMatch(message.context);
+    debug("message-resolved", result);
+    return {
+      ok: true,
+      result
+    };
+  } catch (error) {
+    console.error("Nebula match resolution failed", {
+      error: error instanceof Error ? error.message : String(error),
+      sender
     });
+    debug("message-failed", runtimeApi.serializeError(error));
 
-  return true;
+    return {
+      ok: false,
+      error: error instanceof Error ? error.message : String(error)
+    };
+  }
 });

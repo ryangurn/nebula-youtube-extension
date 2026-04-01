@@ -23,6 +23,7 @@
         "https://www.youtube.com/watch*"
       ],
       "js": [
+        "lib/runtime.js",
         "content.js"
       ],
       "run_at": "document_idle"

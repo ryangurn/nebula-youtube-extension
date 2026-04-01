@@ -5,6 +5,7 @@
   const STYLE_ID = "nebula-youtube-button-style";
   const REQUEST_DEBOUNCE_MS = 350;
   const DEBUG_PREFIX = "[Nebula Match]";
+  const runtimeApi = globalThis.NebulaExtensionRuntime;
 
   let lastResolvedVideoId = null;
   let requestTimer = null;
@@ -208,28 +209,36 @@
   }
 
   function resolveNebulaMatch(context) {
-    return new Promise((resolve) => {
-      debug("Requesting Nebula match", context);
-      chrome.runtime.sendMessage(
-        {
-          type: "resolve-nebula-match",
-          context
-        },
-        (response) => {
-          if (chrome.runtime.lastError || !response || !response.ok) {
-            debug("Nebula match request failed", {
-              runtimeError: chrome.runtime.lastError?.message,
-              response
-            });
-            resolve({ state: "no_match" });
-            return;
-          }
-
-          debug("Nebula match response", response.result);
-          resolve(response.result || { state: "no_match" });
-        }
-      );
+    debug("Requesting Nebula match", {
+      ...context,
+      environment: runtimeApi?.getEnvironment?.()
     });
+
+    if (!runtimeApi) {
+      debug("Nebula runtime helper is unavailable");
+      return Promise.resolve({ state: "no_match" });
+    }
+
+    return runtimeApi
+      .sendMessage({
+        type: "resolve-nebula-match",
+        context
+      })
+      .then((response) => {
+        if (!response || !response.ok) {
+          debug("Nebula match request failed", {
+            response
+          });
+          return { state: "no_match" };
+        }
+
+        debug("Nebula match response", response.result);
+        return response.result || { state: "no_match" };
+      })
+      .catch((error) => {
+        debug("Nebula match request threw", runtimeApi.serializeError(error));
+        return { state: "no_match" };
+      });
   }
 
   async function refreshForCurrentVideo() {

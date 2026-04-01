@@ -1,0 +1,1003 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94B9FA6E2F7DE05300B0F9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9FA6D2F7DE05300B0F9F2 /* AppDelegate.swift */; };
+		94B9FA702F7DE05300B0F9F2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9FA6F2F7DE05300B0F9F2 /* SceneDelegate.swift */; };
+		94B9FA732F7DE05300B0F9F2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA712F7DE05300B0F9F2 /* LaunchScreen.storyboard */; };
+		94B9FA762F7DE05300B0F9F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA742F7DE05300B0F9F2 /* Main.storyboard */; };
+		94B9FA7F2F7DE05300B0F9F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9FA7E2F7DE05300B0F9F2 /* AppDelegate.swift */; };
+		94B9FA822F7DE05300B0F9F2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA802F7DE05300B0F9F2 /* Main.storyboard */; };
+		94B9FA892F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 94B9FA882F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94B9FA932F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 94B9FA922F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		94B9FA982F7DE05300B0F9F2 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA5D2F7DE05200B0F9F2 /* Main.html */; };
+		94B9FA992F7DE05300B0F9F2 /* Main.html in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA5D2F7DE05200B0F9F2 /* Main.html */; };
+		94B9FA9A2F7DE05300B0F9F2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA5F2F7DE05200B0F9F2 /* Icon.png */; };
+		94B9FA9B2F7DE05300B0F9F2 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA5F2F7DE05200B0F9F2 /* Icon.png */; };
+		94B9FA9C2F7DE05300B0F9F2 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA602F7DE05200B0F9F2 /* Style.css */; };
+		94B9FA9D2F7DE05300B0F9F2 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA602F7DE05200B0F9F2 /* Style.css */; };
+		94B9FA9E2F7DE05300B0F9F2 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA612F7DE05200B0F9F2 /* Script.js */; };
+		94B9FA9F2F7DE05300B0F9F2 /* Script.js in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA612F7DE05200B0F9F2 /* Script.js */; };
+		94B9FAA02F7DE05300B0F9F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9FA622F7DE05200B0F9F2 /* ViewController.swift */; };
+		94B9FAA12F7DE05300B0F9F2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9FA622F7DE05200B0F9F2 /* ViewController.swift */; };
+		94B9FAA22F7DE05300B0F9F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA632F7DE05300B0F9F2 /* Assets.xcassets */; };
+		94B9FAA32F7DE05300B0F9F2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FA632F7DE05300B0F9F2 /* Assets.xcassets */; };
+		94B9FAA42F7DE05300B0F9F2 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9FA652F7DE05300B0F9F2 /* SafariWebExtensionHandler.swift */; };
+		94B9FAA52F7DE05300B0F9F2 /* SafariWebExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B9FA652F7DE05300B0F9F2 /* SafariWebExtensionHandler.swift */; };
+		94B9FABC2F7DE05300B0F9F2 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FAB72F7DE05300B0F9F2 /* background.js */; };
+		94B9FABD2F7DE05300B0F9F2 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FAB82F7DE05300B0F9F2 /* icons */; };
+		94B9FABE2F7DE05300B0F9F2 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FAB92F7DE05300B0F9F2 /* manifest.json */; };
+		94B9FABF2F7DE05300B0F9F2 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FABA2F7DE05300B0F9F2 /* lib */; };
+		94B9FAC02F7DE05300B0F9F2 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FABB2F7DE05300B0F9F2 /* content.js */; };
+		94B9FAC12F7DE05300B0F9F2 /* background.js in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FAB72F7DE05300B0F9F2 /* background.js */; };
+		94B9FAC22F7DE05300B0F9F2 /* icons in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FAB82F7DE05300B0F9F2 /* icons */; };
+		94B9FAC32F7DE05300B0F9F2 /* manifest.json in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FAB92F7DE05300B0F9F2 /* manifest.json */; };
+		94B9FAC42F7DE05300B0F9F2 /* lib in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FABA2F7DE05300B0F9F2 /* lib */; };
+		94B9FAC52F7DE05300B0F9F2 /* content.js in Resources */ = {isa = PBXBuildFile; fileRef = 94B9FABB2F7DE05300B0F9F2 /* content.js */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94B9FA8A2F7DE05300B0F9F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94B9FA572F7DE05200B0F9F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94B9FA872F7DE05300B0F9F2;
+			remoteInfo = "Nebula Match for YouTube Extension (iOS)";
+		};
+		94B9FA942F7DE05300B0F9F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94B9FA572F7DE05200B0F9F2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94B9FA912F7DE05300B0F9F2;
+			remoteInfo = "Nebula Match for YouTube Extension (macOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		94B9FAAB2F7DE05300B0F9F2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				94B9FA892F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FAB22F7DE05300B0F9F2 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				94B9FA932F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		94B9FA5E2F7DE05200B0F9F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = Base; path = Base.lproj/Main.html; sourceTree = "<group>"; };
+		94B9FA5F2F7DE05200B0F9F2 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		94B9FA602F7DE05200B0F9F2 /* Style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		94B9FA612F7DE05200B0F9F2 /* Script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = Script.js; sourceTree = "<group>"; };
+		94B9FA622F7DE05200B0F9F2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		94B9FA632F7DE05300B0F9F2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		94B9FA652F7DE05300B0F9F2 /* SafariWebExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebExtensionHandler.swift; sourceTree = "<group>"; };
+		94B9FA6A2F7DE05300B0F9F2 /* Nebula Match for YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nebula Match for YouTube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B9FA6D2F7DE05300B0F9F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		94B9FA6F2F7DE05300B0F9F2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		94B9FA722F7DE05300B0F9F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		94B9FA752F7DE05300B0F9F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		94B9FA772F7DE05300B0F9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B9FA7C2F7DE05300B0F9F2 /* Nebula Match for YouTube.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nebula Match for YouTube.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B9FA7E2F7DE05300B0F9F2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		94B9FA812F7DE05300B0F9F2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		94B9FA832F7DE05300B0F9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B9FA882F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Nebula Match for YouTube Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B9FA8D2F7DE05300B0F9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B9FA922F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Nebula Match for YouTube Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94B9FA972F7DE05300B0F9F2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B9FAB72F7DE05300B0F9F2 /* background.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = background.js; path = "../../../dist/nebula-youtube-extension-safari/background.js"; sourceTree = "<group>"; };
+		94B9FAB82F7DE05300B0F9F2 /* icons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = icons; path = "../../../dist/nebula-youtube-extension-safari/icons"; sourceTree = "<group>"; };
+		94B9FAB92F7DE05300B0F9F2 /* manifest.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = manifest.json; path = "../../../dist/nebula-youtube-extension-safari/manifest.json"; sourceTree = "<group>"; };
+		94B9FABA2F7DE05300B0F9F2 /* lib */ = {isa = PBXFileReference; lastKnownFileType = folder; name = lib; path = "../../../dist/nebula-youtube-extension-safari/lib"; sourceTree = "<group>"; };
+		94B9FABB2F7DE05300B0F9F2 /* content.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; name = content.js; path = "../../../dist/nebula-youtube-extension-safari/content.js"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94B9FA672F7DE05300B0F9F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FA792F7DE05300B0F9F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FA852F7DE05300B0F9F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FA8F2F7DE05300B0F9F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94B9FA562F7DE05200B0F9F2 = {
+			isa = PBXGroup;
+			children = (
+				94B9FA5B2F7DE05200B0F9F2 /* Shared (App) */,
+				94B9FA642F7DE05300B0F9F2 /* Shared (Extension) */,
+				94B9FA6C2F7DE05300B0F9F2 /* iOS (App) */,
+				94B9FA7D2F7DE05300B0F9F2 /* macOS (App) */,
+				94B9FA8C2F7DE05300B0F9F2 /* iOS (Extension) */,
+				94B9FA962F7DE05300B0F9F2 /* macOS (Extension) */,
+				94B9FA6B2F7DE05300B0F9F2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94B9FA5B2F7DE05200B0F9F2 /* Shared (App) */ = {
+			isa = PBXGroup;
+			children = (
+				94B9FA622F7DE05200B0F9F2 /* ViewController.swift */,
+				94B9FA632F7DE05300B0F9F2 /* Assets.xcassets */,
+				94B9FA5C2F7DE05200B0F9F2 /* Resources */,
+			);
+			path = "Shared (App)";
+			sourceTree = "<group>";
+		};
+		94B9FA5C2F7DE05200B0F9F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94B9FA5D2F7DE05200B0F9F2 /* Main.html */,
+				94B9FA5F2F7DE05200B0F9F2 /* Icon.png */,
+				94B9FA602F7DE05200B0F9F2 /* Style.css */,
+				94B9FA612F7DE05200B0F9F2 /* Script.js */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		94B9FA642F7DE05300B0F9F2 /* Shared (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				94B9FAB62F7DE05300B0F9F2 /* Resources */,
+				94B9FA652F7DE05300B0F9F2 /* SafariWebExtensionHandler.swift */,
+			);
+			path = "Shared (Extension)";
+			sourceTree = "<group>";
+		};
+		94B9FA6B2F7DE05300B0F9F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94B9FA6A2F7DE05300B0F9F2 /* Nebula Match for YouTube.app */,
+				94B9FA7C2F7DE05300B0F9F2 /* Nebula Match for YouTube.app */,
+				94B9FA882F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex */,
+				94B9FA922F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94B9FA6C2F7DE05300B0F9F2 /* iOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				94B9FA6D2F7DE05300B0F9F2 /* AppDelegate.swift */,
+				94B9FA6F2F7DE05300B0F9F2 /* SceneDelegate.swift */,
+				94B9FA712F7DE05300B0F9F2 /* LaunchScreen.storyboard */,
+				94B9FA742F7DE05300B0F9F2 /* Main.storyboard */,
+				94B9FA772F7DE05300B0F9F2 /* Info.plist */,
+			);
+			path = "iOS (App)";
+			sourceTree = "<group>";
+		};
+		94B9FA7D2F7DE05300B0F9F2 /* macOS (App) */ = {
+			isa = PBXGroup;
+			children = (
+				94B9FA7E2F7DE05300B0F9F2 /* AppDelegate.swift */,
+				94B9FA802F7DE05300B0F9F2 /* Main.storyboard */,
+				94B9FA832F7DE05300B0F9F2 /* Info.plist */,
+			);
+			path = "macOS (App)";
+			sourceTree = "<group>";
+		};
+		94B9FA8C2F7DE05300B0F9F2 /* iOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				94B9FA8D2F7DE05300B0F9F2 /* Info.plist */,
+			);
+			path = "iOS (Extension)";
+			sourceTree = "<group>";
+		};
+		94B9FA962F7DE05300B0F9F2 /* macOS (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				94B9FA972F7DE05300B0F9F2 /* Info.plist */,
+			);
+			path = "macOS (Extension)";
+			sourceTree = "<group>";
+		};
+		94B9FAB62F7DE05300B0F9F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				94B9FAB72F7DE05300B0F9F2 /* background.js */,
+				94B9FAB82F7DE05300B0F9F2 /* icons */,
+				94B9FAB92F7DE05300B0F9F2 /* manifest.json */,
+				94B9FABA2F7DE05300B0F9F2 /* lib */,
+				94B9FABB2F7DE05300B0F9F2 /* content.js */,
+			);
+			name = Resources;
+			path = "Shared (Extension)";
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94B9FA692F7DE05300B0F9F2 /* Nebula Match for YouTube (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94B9FAAC2F7DE05300B0F9F2 /* Build configuration list for PBXNativeTarget "Nebula Match for YouTube (iOS)" */;
+			buildPhases = (
+				94B9FA662F7DE05300B0F9F2 /* Sources */,
+				94B9FA672F7DE05300B0F9F2 /* Frameworks */,
+				94B9FA682F7DE05300B0F9F2 /* Resources */,
+				94B9FAAB2F7DE05300B0F9F2 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94B9FA8B2F7DE05300B0F9F2 /* PBXTargetDependency */,
+			);
+			name = "Nebula Match for YouTube (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "Nebula Match for YouTube (iOS)";
+			productReference = 94B9FA6A2F7DE05300B0F9F2 /* Nebula Match for YouTube.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94B9FA7B2F7DE05300B0F9F2 /* Nebula Match for YouTube (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94B9FAB32F7DE05300B0F9F2 /* Build configuration list for PBXNativeTarget "Nebula Match for YouTube (macOS)" */;
+			buildPhases = (
+				94B9FA782F7DE05300B0F9F2 /* Sources */,
+				94B9FA792F7DE05300B0F9F2 /* Frameworks */,
+				94B9FA7A2F7DE05300B0F9F2 /* Resources */,
+				94B9FAB22F7DE05300B0F9F2 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94B9FA952F7DE05300B0F9F2 /* PBXTargetDependency */,
+			);
+			name = "Nebula Match for YouTube (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "Nebula Match for YouTube (macOS)";
+			productReference = 94B9FA7C2F7DE05300B0F9F2 /* Nebula Match for YouTube.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94B9FA872F7DE05300B0F9F2 /* Nebula Match for YouTube Extension (iOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94B9FAA82F7DE05300B0F9F2 /* Build configuration list for PBXNativeTarget "Nebula Match for YouTube Extension (iOS)" */;
+			buildPhases = (
+				94B9FA842F7DE05300B0F9F2 /* Sources */,
+				94B9FA852F7DE05300B0F9F2 /* Frameworks */,
+				94B9FA862F7DE05300B0F9F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Nebula Match for YouTube Extension (iOS)";
+			packageProductDependencies = (
+			);
+			productName = "Nebula Match for YouTube Extension (iOS)";
+			productReference = 94B9FA882F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		94B9FA912F7DE05300B0F9F2 /* Nebula Match for YouTube Extension (macOS) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94B9FAAF2F7DE05300B0F9F2 /* Build configuration list for PBXNativeTarget "Nebula Match for YouTube Extension (macOS)" */;
+			buildPhases = (
+				94B9FA8E2F7DE05300B0F9F2 /* Sources */,
+				94B9FA8F2F7DE05300B0F9F2 /* Frameworks */,
+				94B9FA902F7DE05300B0F9F2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Nebula Match for YouTube Extension (macOS)";
+			packageProductDependencies = (
+			);
+			productName = "Nebula Match for YouTube Extension (macOS)";
+			productReference = 94B9FA922F7DE05300B0F9F2 /* Nebula Match for YouTube Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94B9FA572F7DE05200B0F9F2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					94B9FA692F7DE05300B0F9F2 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					94B9FA7B2F7DE05300B0F9F2 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					94B9FA872F7DE05300B0F9F2 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+					94B9FA912F7DE05300B0F9F2 = {
+						CreatedOnToolsVersion = 26.4;
+					};
+				};
+			};
+			buildConfigurationList = 94B9FA5A2F7DE05200B0F9F2 /* Build configuration list for PBXProject "Nebula Match for YouTube" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 94B9FA562F7DE05200B0F9F2;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 94B9FA6B2F7DE05300B0F9F2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94B9FA692F7DE05300B0F9F2 /* Nebula Match for YouTube (iOS) */,
+				94B9FA7B2F7DE05300B0F9F2 /* Nebula Match for YouTube (macOS) */,
+				94B9FA872F7DE05300B0F9F2 /* Nebula Match for YouTube Extension (iOS) */,
+				94B9FA912F7DE05300B0F9F2 /* Nebula Match for YouTube Extension (macOS) */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94B9FA682F7DE05300B0F9F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B9FA9A2F7DE05300B0F9F2 /* Icon.png in Resources */,
+				94B9FA732F7DE05300B0F9F2 /* LaunchScreen.storyboard in Resources */,
+				94B9FA982F7DE05300B0F9F2 /* Main.html in Resources */,
+				94B9FA9E2F7DE05300B0F9F2 /* Script.js in Resources */,
+				94B9FAA22F7DE05300B0F9F2 /* Assets.xcassets in Resources */,
+				94B9FA762F7DE05300B0F9F2 /* Main.storyboard in Resources */,
+				94B9FA9C2F7DE05300B0F9F2 /* Style.css in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FA7A2F7DE05300B0F9F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B9FA9B2F7DE05300B0F9F2 /* Icon.png in Resources */,
+				94B9FA9D2F7DE05300B0F9F2 /* Style.css in Resources */,
+				94B9FA822F7DE05300B0F9F2 /* Main.storyboard in Resources */,
+				94B9FA9F2F7DE05300B0F9F2 /* Script.js in Resources */,
+				94B9FAA32F7DE05300B0F9F2 /* Assets.xcassets in Resources */,
+				94B9FA992F7DE05300B0F9F2 /* Main.html in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FA862F7DE05300B0F9F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B9FAC12F7DE05300B0F9F2 /* background.js in Resources */,
+				94B9FAC32F7DE05300B0F9F2 /* manifest.json in Resources */,
+				94B9FAC42F7DE05300B0F9F2 /* lib in Resources */,
+				94B9FAC22F7DE05300B0F9F2 /* icons in Resources */,
+				94B9FAC52F7DE05300B0F9F2 /* content.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FA902F7DE05300B0F9F2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B9FABC2F7DE05300B0F9F2 /* background.js in Resources */,
+				94B9FABE2F7DE05300B0F9F2 /* manifest.json in Resources */,
+				94B9FABF2F7DE05300B0F9F2 /* lib in Resources */,
+				94B9FABD2F7DE05300B0F9F2 /* icons in Resources */,
+				94B9FAC02F7DE05300B0F9F2 /* content.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94B9FA662F7DE05300B0F9F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B9FAA02F7DE05300B0F9F2 /* ViewController.swift in Sources */,
+				94B9FA6E2F7DE05300B0F9F2 /* AppDelegate.swift in Sources */,
+				94B9FA702F7DE05300B0F9F2 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FA782F7DE05300B0F9F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B9FAA12F7DE05300B0F9F2 /* ViewController.swift in Sources */,
+				94B9FA7F2F7DE05300B0F9F2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FA842F7DE05300B0F9F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B9FAA42F7DE05300B0F9F2 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94B9FA8E2F7DE05300B0F9F2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94B9FAA52F7DE05300B0F9F2 /* SafariWebExtensionHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94B9FA8B2F7DE05300B0F9F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94B9FA872F7DE05300B0F9F2 /* Nebula Match for YouTube Extension (iOS) */;
+			targetProxy = 94B9FA8A2F7DE05300B0F9F2 /* PBXContainerItemProxy */;
+		};
+		94B9FA952F7DE05300B0F9F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94B9FA912F7DE05300B0F9F2 /* Nebula Match for YouTube Extension (macOS) */;
+			targetProxy = 94B9FA942F7DE05300B0F9F2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		94B9FA5D2F7DE05200B0F9F2 /* Main.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94B9FA5E2F7DE05200B0F9F2 /* Base */,
+			);
+			name = Main.html;
+			sourceTree = "<group>";
+		};
+		94B9FA712F7DE05300B0F9F2 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94B9FA722F7DE05300B0F9F2 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		94B9FA742F7DE05300B0F9F2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94B9FA752F7DE05300B0F9F2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		94B9FA802F7DE05300B0F9F2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94B9FA812F7DE05300B0F9F2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		94B9FAA62F7DE05300B0F9F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		94B9FAA72F7DE05300B0F9F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		94B9FAA92F7DE05300B0F9F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFF92ER9C4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Nebula Match for YouTube Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryangurnick.nebulamatch.extension;
+				PRODUCT_NAME = "Nebula Match for YouTube Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94B9FAAA2F7DE05300B0F9F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFF92ER9C4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Nebula Match for YouTube Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryangurnick.nebulamatch.extension;
+				PRODUCT_NAME = "Nebula Match for YouTube Extension";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94B9FAAD2F7DE05300B0F9F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFF92ER9C4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Nebula Match for YouTube";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryangurnick.nebulamatch;
+				PRODUCT_NAME = "Nebula Match for YouTube";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94B9FAAE2F7DE05300B0F9F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFF92ER9C4;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "iOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Nebula Match for YouTube";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryangurnick.nebulamatch;
+				PRODUCT_NAME = "Nebula Match for YouTube";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94B9FAB02F7DE05300B0F9F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFF92ER9C4;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Nebula Match for YouTube Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryangurnick.nebulamatch.extension;
+				PRODUCT_NAME = "Nebula Match for YouTube Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		94B9FAB12F7DE05300B0F9F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFF92ER9C4;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (Extension)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Nebula Match for YouTube Extension";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryangurnick.nebulamatch.extension;
+				PRODUCT_NAME = "Nebula Match for YouTube Extension";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		94B9FAB42F7DE05300B0F9F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFF92ER9C4;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Nebula Match for YouTube";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryangurnick.nebulamatch;
+				PRODUCT_NAME = "Nebula Match for YouTube";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		94B9FAB52F7DE05300B0F9F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FFF92ER9C4;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "macOS (App)/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Nebula Match for YouTube";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-framework",
+					SafariServices,
+					"-framework",
+					WebKit,
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.ryangurnick.nebulamatch;
+				PRODUCT_NAME = "Nebula Match for YouTube";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94B9FA5A2F7DE05200B0F9F2 /* Build configuration list for PBXProject "Nebula Match for YouTube" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94B9FAA62F7DE05300B0F9F2 /* Debug */,
+				94B9FAA72F7DE05300B0F9F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94B9FAA82F7DE05300B0F9F2 /* Build configuration list for PBXNativeTarget "Nebula Match for YouTube Extension (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94B9FAA92F7DE05300B0F9F2 /* Debug */,
+				94B9FAAA2F7DE05300B0F9F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94B9FAAC2F7DE05300B0F9F2 /* Build configuration list for PBXNativeTarget "Nebula Match for YouTube (iOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94B9FAAD2F7DE05300B0F9F2 /* Debug */,
+				94B9FAAE2F7DE05300B0F9F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94B9FAAF2F7DE05300B0F9F2 /* Build configuration list for PBXNativeTarget "Nebula Match for YouTube Extension (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94B9FAB02F7DE05300B0F9F2 /* Debug */,
+				94B9FAB12F7DE05300B0F9F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94B9FAB32F7DE05300B0F9F2 /* Build configuration list for PBXNativeTarget "Nebula Match for YouTube (macOS)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94B9FAB42F7DE05300B0F9F2 /* Debug */,
+				94B9FAB52F7DE05300B0F9F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 94B9FA572F7DE05200B0F9F2 /* Project object */;
+}
