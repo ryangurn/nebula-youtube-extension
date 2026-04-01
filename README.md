@@ -2,6 +2,8 @@
 
 Chrome extension that runs on desktop YouTube watch pages and adds a Nebula CTA when the current video can be matched to public Nebula content.
 
+This extension was developed with AI assistance and human oversight.
+
 ## Features
 
 - `Watch on Nebula` when a strong Nebula video match is found
