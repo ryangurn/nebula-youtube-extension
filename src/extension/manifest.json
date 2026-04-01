@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Nebula Match for YouTube",
+  "version": "0.1.0",
+  "description": "Adds a Nebula link on matching YouTube watch pages using public Nebula APIs.",
+  "permissions": [],
+  "host_permissions": [
+    "https://content.api.nebula.app/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/watch*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

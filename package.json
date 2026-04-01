@@ -1,0 +1,11 @@
+{
+  "name": "nebula-youtube-extension",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Chrome extension that links matching YouTube videos to Nebula using public Nebula APIs.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test"
+  }
+}
