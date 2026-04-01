@@ -4,6 +4,10 @@ Chrome extension that runs on desktop YouTube watch pages and adds a Nebula CTA 
 
 This extension was developed with AI assistance and human oversight.
 
+It is an independent project created by a Nebula subscriber with no affiliation to Nebula, built simply to make the platform easier to use alongside YouTube.
+
+If **Nebula** has concerns about this project or would prefer changes to its presentation, please open an issue or contact the maintainer, would love to collaborate!
+
 ## Features
 
 - `Watch on Nebula` when a strong Nebula video match is found
