@@ -14,8 +14,8 @@ If **Nebula** has concerns about this project or would prefer changes to its pre
 - `View creator on Nebula` when the creator matches but the video match is ambiguous on a watch page
 - `View creator on Nebula` on matching YouTube channel pages
 - No auth, cookies, or private Nebula endpoints
-- Shared WebExtension source with Chrome and Safari packaging paths
-- Packaged as a ready-to-load Chrome extension directory, zip artifact, and a Safari-compatible build artifact
+- Shared WebExtension source with Chrome, Firefox, and Safari packaging paths
+- Packaged as ready-to-load Chrome and Firefox extension directories, zip artifacts, and a Safari-compatible build artifact
 
 ## Development
 
@@ -30,9 +30,13 @@ npm run build
 
 - `dist/nebula-youtube-extension/`
 - `dist/nebula-youtube-extension.zip`
+- `dist/nebula-youtube-extension-firefox/`
+- `dist/nebula-youtube-extension-firefox.zip`
 - `dist/nebula-youtube-extension-safari/`
 
 The Safari build output is derived from the same `src/extension/` source, but replaces the MV3 module background worker with a Safari-compatible bundled background script. That keeps the matching logic shared while avoiding Safari's `background.type = "module"` limitation during conversion.
+
+The Firefox build output is also derived from the same `src/extension/` source, but swaps the Chrome MV3 service worker for a Firefox-compatible bundled background script declared via `background.scripts`. This keeps the content script, matching logic, and runtime messaging shared while producing a temporary-install-friendly Firefox artifact.
 
 ## Load In Chrome
 
@@ -41,6 +45,19 @@ The Safari build output is derived from the same `src/extension/` source, but re
 3. Turn on Developer Mode.
 4. Click `Load unpacked`.
 5. Select the unzipped `nebula-youtube-extension` folder.
+
+## Load In Firefox
+
+1. Run `npm run build` or `npm run build:firefox`.
+2. Open `about:debugging#/runtime/this-firefox`.
+3. Click `Load Temporary Add-on...`.
+4. Select `/Users/ryan/Desktop/github/nebula-extension/dist/nebula-youtube-extension-firefox/manifest.json`.
+
+Notes:
+
+- the generated Firefox build is intended for local development and temporary installation
+- Firefox will prompt for the declared Nebula host permission on install
+- AMO signing and `browser_specific_settings.gecko.id` are intentionally not part of this first-pass build path
 
 ## Set Up Safari
 
@@ -113,6 +130,17 @@ Build the iOS scheme separately if you plan to ship iPhone and iPad support.
 - YouTube SPA navigation updates the CTA without a full page reload
 - Nebula links open correctly from Safari desktop and mobile contexts
 - background-to-content messaging still succeeds after Safari lifecycle pauses/restarts
+
+### Firefox Testing Checklist
+
+- matching YouTube watch pages render `Watch on Nebula`
+- ambiguous videos render `View creator on Nebula`
+- matching YouTube channel pages render `View creator on Nebula` in the channel header action row
+- non-matching YouTube channel pages render no CTA
+- unmatched videos render no CTA
+- YouTube SPA navigation updates the CTA without a full page reload
+- Nebula links open correctly in a new tab
+- background-to-content messaging still succeeds after temporary reloading the add-on from `about:debugging`
 
 ### Remote Debugging iPhone And iPad Safari
 

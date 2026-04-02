@@ -6,6 +6,7 @@
   "description": "Browser extension that links matching YouTube watch and channel pages to Nebula using public Nebula APIs.",
   "scripts": {
     "build": "node scripts/build.mjs",
+    "build:firefox": "node scripts/build.mjs --firefox-only",
     "build:safari": "node scripts/build-safari.mjs",
     "setup:safari": "node scripts/setup-safari.mjs",
     "test": "node --test"
