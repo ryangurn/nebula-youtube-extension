@@ -23,13 +23,30 @@ const zipFilePath = path.join(distDirectory, "nebula-youtube-extension.zip");
 const firefoxZipFilePath = path.join(distDirectory, "nebula-youtube-extension-firefox.zip");
 const buildFirefoxOnly = process.argv.includes("--firefox-only");
 
-function ensureCleanDirectory(directory) {
-  rmSync(directory, { recursive: true, force: true });
-  mkdirSync(directory, { recursive: true });
-}
-
 function removeIfExists(targetPath) {
-  rmSync(targetPath, { recursive: true, force: true });
+  let lastError = null;
+
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      rmSync(targetPath, {
+        recursive: true,
+        force: true,
+        maxRetries: 5,
+        retryDelay: 50
+      });
+      return;
+    } catch (error) {
+      lastError = error;
+
+      if (error?.code !== "ENOTEMPTY") {
+        throw error;
+      }
+    }
+  }
+
+  if (lastError) {
+    throw lastError;
+  }
 }
 
 function listFilesRecursively(directory, parentPrefix = "") {
@@ -100,7 +117,7 @@ function writeJson(filePath, value) {
 }
 
 function buildChromeExtension() {
-  ensureCleanDirectory(chromeExtensionDirectory);
+  removeIfExists(chromeExtensionDirectory);
   cpSync(sourceDirectory, chromeExtensionDirectory, {
     recursive: true,
     filter: shouldCopyExtensionPath
@@ -108,7 +125,7 @@ function buildChromeExtension() {
 }
 
 function buildFirefoxExtension() {
-  ensureCleanDirectory(firefoxExtensionDirectory);
+  removeIfExists(firefoxExtensionDirectory);
   cpSync(sourceDirectory, firefoxExtensionDirectory, {
     recursive: true,
     filter: shouldCopyExtensionPath
@@ -129,7 +146,7 @@ function buildFirefoxExtension() {
 }
 
 function buildSafariExtension() {
-  ensureCleanDirectory(safariExtensionDirectory);
+  removeIfExists(safariExtensionDirectory);
   cpSync(sourceDirectory, safariExtensionDirectory, {
     recursive: true,
     filter: shouldCopyExtensionPath

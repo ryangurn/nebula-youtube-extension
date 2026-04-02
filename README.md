@@ -19,49 +19,70 @@ If **Nebula** has concerns about this project or would prefer changes to its pre
 
 ## Development
 
+Run the test suite:
+
 ```bash
 npm test
+```
+
+Build browser artifacts:
+
+```bash
 npm run build
 ```
 
-## Build Output
-
 `npm run build` creates:
 
-- `dist/nebula-youtube-extension/`
-- `dist/nebula-youtube-extension.zip`
-- `dist/nebula-youtube-extension-firefox/`
-- `dist/nebula-youtube-extension-firefox.zip`
-- `dist/nebula-youtube-extension-safari/`
+- `dist/nebula-youtube-extension/` for Chrome
+- `dist/nebula-youtube-extension.zip` as a Chrome zip artifact
+- `dist/nebula-youtube-extension-firefox/` for Firefox
+- `dist/nebula-youtube-extension-firefox.zip` as a Firefox zip artifact
+- `dist/nebula-youtube-extension-safari/` for Safari conversion
 
-The Safari build output is derived from the same `src/extension/` source, but replaces the MV3 module background worker with a Safari-compatible bundled background script. That keeps the matching logic shared while avoiding Safari's `background.type = "module"` limitation during conversion.
+The Safari build output is derived from the same `src/extension/` source, but replaces the MV3 module background worker with a Safari-compatible bundled background script. The Firefox build output also comes from the same source tree, but swaps the Chrome MV3 service worker for a Firefox-compatible bundled background script declared via `background.scripts`.
 
-The Firefox build output is also derived from the same `src/extension/` source, but swaps the Chrome MV3 service worker for a Firefox-compatible bundled background script declared via `background.scripts`. This keeps the content script, matching logic, and runtime messaging shared while producing a temporary-install-friendly Firefox artifact.
+## Developer Installation
 
-## Load In Chrome
+### Chrome
 
-1. Unzip `dist/nebula-youtube-extension.zip`.
-2. Open `chrome://extensions`.
-3. Turn on Developer Mode.
-4. Click `Load unpacked`.
-5. Select the unzipped `nebula-youtube-extension` folder.
+Build the unpacked extension:
 
-## Load In Firefox
+```bash
+npm run build
+```
 
-1. Run `npm run build` or `npm run build:firefox`.
-2. Open `about:debugging#/runtime/this-firefox`.
-3. Click `Load Temporary Add-on...`.
-4. Select `/Users/ryan/Desktop/github/nebula-extension/dist/nebula-youtube-extension-firefox/manifest.json`.
+Then load it in Chrome:
+
+1. Open `chrome://extensions`.
+2. Turn on Developer Mode.
+3. Click `Load unpacked`.
+4. Select `dist/nebula-youtube-extension/`.
+
+### Firefox
+
+Build the Firefox artifact:
+
+```bash
+npm run build:firefox
+```
+
+Then load it in Firefox:
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click `Load Temporary Add-on...`.
+3. Select `dist/nebula-youtube-extension-firefox/manifest.json`.
 
 Notes:
 
 - the generated Firefox build is intended for local development and temporary installation
 - Firefox will prompt for the declared Nebula host permission on install
-- AMO signing and `browser_specific_settings.gecko.id` are intentionally not part of this first-pass build path
+- AMO signing and `browser_specific_settings.gecko.id` are intentionally not part of this build path yet
 
-## Set Up Safari
+### Safari
 
-Run the Safari project generator:
+Safari development requires macOS with Xcode and Safari installed.
+
+Create or refresh the Safari wrapper project:
 
 ```bash
 npm run setup:safari
@@ -69,38 +90,27 @@ npm run setup:safari
 
 That command:
 
-- rebuilds the shared Chrome and Safari extension artifacts
+- rebuilds the shared Chrome, Firefox, and Safari extension artifacts
 - converts `dist/nebula-youtube-extension-safari/` into an Xcode project when one does not already exist
 - writes the generated wrapper app to `safari/Nebula Match for YouTube/`
 
-If you already have a signed Safari Xcode project, `npm run setup:safari` now preserves it by default. Use `npm run setup:safari -- --force` only when you intentionally want to recreate the project from scratch.
+If you already have a signed Safari Xcode project, `npm run setup:safari` preserves it by default. Use `npm run setup:safari -- --force` only when you intentionally want to recreate the project from scratch.
 
-### Local Developer Workflow
+Install it for development:
 
-1. Run `npm run setup:safari`.
-2. Open `safari/Nebula Match for YouTube/Nebula Match for YouTube.xcodeproj` in Xcode.
-3. Pick a development team for the macOS app target, iOS app target, and both extension targets.
-4. If you need unique identifiers for your account, update the generated bundle identifiers before building.
-5. Run the macOS or iOS app target from Xcode.
-6. Enable the extension in Safari:
-   - macOS: Safari > Settings > Extensions
-   - iPhone/iPad: Settings > Apps > Safari > Extensions
+1. Open `safari/Nebula Match for YouTube/Nebula Match for YouTube.xcodeproj` in Xcode.
+2. Pick a development team for the macOS app target, iOS app target, and both extension targets.
+3. If needed, replace the generated bundle identifiers with ones that belong to your Apple team.
+4. Run the macOS or iOS app target from Xcode.
+5. Enable the extension in Safari. On macOS use `Safari > Settings > Extensions`. On iPhone and iPad use `Settings > Apps > Safari > Extensions`.
 
-### Rebuild Safari After Signing
-
-Once you have signed the generated Xcode project once, you can use:
+Once the Xcode project has been signed once, you can rebuild the macOS Safari app without regenerating the project:
 
 ```bash
 npm run build:safari
 ```
 
-That command:
-
-- rebuilds the shared Chrome and Safari extension artifacts
-- keeps your existing signed Xcode project instead of regenerating it
-- builds the macOS Safari wrapper app into `build/safari/Build/Products/Debug/`
-
-After it finishes, launch the built app bundle and enable the extension in Safari Settings if it is not already enabled.
+`npm run build:safari` rebuilds the shared extension artifacts, keeps your existing signed Xcode project, and builds the macOS wrapper app into `build/safari/Build/Products/Debug/`.
 
 ### Release Workflow
 
