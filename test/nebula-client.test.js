@@ -208,3 +208,66 @@ test("NebulaClient resolveMatch can recover when creator search is empty but epi
   assert.equal(result.state, "video_match");
   assert.equal(result.targetUrl, "https://nebula.tv/videos/the-secret-economics-of-lego");
 });
+
+test("NebulaClient resolveMatch returns a creator match for channel pages", async () => {
+  const calls = [];
+  const fetchImpl = async (url) => {
+    calls.push(url);
+
+    if (url.includes("/video_channels/search/")) {
+      return createJsonResponse({
+        results: [
+          { title: "Phil Edwards", slug: "philedwards" }
+        ]
+      });
+    }
+
+    if (url.endsWith("/video_channels/philedwards/")) {
+      return createJsonResponse({
+        slug: "philedwards",
+        title: "Phil Edwards",
+        app_path: "philedwards",
+        share_url: "https://nebula.tv/philedwards/"
+      });
+    }
+
+    throw new Error(`Unexpected URL ${url}`);
+  };
+
+  const client = new NebulaClient(fetchImpl);
+  const result = await client.resolveMatch({
+    pageType: "channel",
+    channelName: "Phil Edwards",
+    url: "https://www.youtube.com/@PhilEdwardsInc"
+  });
+
+  assert.equal(result.state, "creator_fallback");
+  assert.equal(result.targetUrl, "https://nebula.tv/philedwards/");
+  assert.deepEqual(
+    calls.filter((url) => url.includes("/video_episodes/")),
+    []
+  );
+});
+
+test("NebulaClient resolveMatch returns no_match for channel pages with weak creator confidence", async () => {
+  const fetchImpl = async (url) => {
+    if (url.includes("/video_channels/search/")) {
+      return createJsonResponse({
+        results: [
+          { title: "Second Thought", slug: "secondthought" }
+        ]
+      });
+    }
+
+    throw new Error(`Unexpected URL ${url}`);
+  };
+
+  const client = new NebulaClient(fetchImpl);
+  const result = await client.resolveMatch({
+    pageType: "channel",
+    channelName: "Phil Edwards",
+    url: "https://www.youtube.com/@PhilEdwardsInc"
+  });
+
+  assert.equal(result.state, "no_match");
+});

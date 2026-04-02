@@ -17,16 +17,36 @@ const repositoryRoot = path.resolve(currentDirectory, "..");
 const sourceDirectory = path.join(repositoryRoot, "src", "extension");
 const distDirectory = path.join(repositoryRoot, "dist");
 const chromeExtensionDirectory = path.join(distDirectory, "nebula-youtube-extension");
+const firefoxExtensionDirectory = path.join(distDirectory, "nebula-youtube-extension-firefox");
 const safariExtensionDirectory = path.join(distDirectory, "nebula-youtube-extension-safari");
 const zipFilePath = path.join(distDirectory, "nebula-youtube-extension.zip");
-
-function ensureCleanDirectory(directory) {
-  rmSync(directory, { recursive: true, force: true });
-  mkdirSync(directory, { recursive: true });
-}
+const firefoxZipFilePath = path.join(distDirectory, "nebula-youtube-extension-firefox.zip");
+const buildFirefoxOnly = process.argv.includes("--firefox-only");
 
 function removeIfExists(targetPath) {
-  rmSync(targetPath, { recursive: true, force: true });
+  let lastError = null;
+
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    try {
+      rmSync(targetPath, {
+        recursive: true,
+        force: true,
+        maxRetries: 5,
+        retryDelay: 50
+      });
+      return;
+    } catch (error) {
+      lastError = error;
+
+      if (error?.code !== "ENOTEMPTY") {
+        throw error;
+      }
+    }
+  }
+
+  if (lastError) {
+    throw lastError;
+  }
 }
 
 function listFilesRecursively(directory, parentPrefix = "") {
@@ -56,7 +76,8 @@ function shouldCopyExtensionPath(sourcePath) {
   return path.basename(sourcePath) !== ".DS_Store";
 }
 
-function createSafariBackgroundBundle() {
+function createBundledBackgroundScript() {
+  const runtimeSource = readSourceFile("lib", "runtime.js");
   const textSource = readSourceFile("lib", "text.js")
     .replace(/export /g, "");
   const matchingSource = readSourceFile("lib", "matching.js")
@@ -70,8 +91,7 @@ function createSafariBackgroundBundle() {
     .replace('import { NebulaClient } from "./lib/nebula-client.js";\n\n', "");
 
   return [
-    'importScripts("./lib/runtime.js");',
-    "",
+    runtimeSource.trim(),
     textSource.trim(),
     "",
     matchingSource.trim(),
@@ -83,20 +103,50 @@ function createSafariBackgroundBundle() {
   ].join("\n");
 }
 
+function createSafariBackgroundBundle() {
+  const bundledBackground = createBundledBackgroundScript();
+
+  return bundledBackground.replace(
+    readSourceFile("lib", "runtime.js").trim(),
+    'importScripts("./lib/runtime.js");'
+  );
+}
+
 function writeJson(filePath, value) {
   writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`);
 }
 
 function buildChromeExtension() {
-  ensureCleanDirectory(chromeExtensionDirectory);
+  removeIfExists(chromeExtensionDirectory);
   cpSync(sourceDirectory, chromeExtensionDirectory, {
     recursive: true,
     filter: shouldCopyExtensionPath
   });
 }
 
+function buildFirefoxExtension() {
+  removeIfExists(firefoxExtensionDirectory);
+  cpSync(sourceDirectory, firefoxExtensionDirectory, {
+    recursive: true,
+    filter: shouldCopyExtensionPath
+  });
+
+  const manifestPath = path.join(firefoxExtensionDirectory, "manifest.json");
+  const manifest = JSON.parse(readFileSync(manifestPath, "utf8"));
+
+  manifest.background = {
+    scripts: ["background.js"]
+  };
+
+  writeJson(manifestPath, manifest);
+  writeFileSync(
+    path.join(firefoxExtensionDirectory, "background.js"),
+    createBundledBackgroundScript()
+  );
+}
+
 function buildSafariExtension() {
-  ensureCleanDirectory(safariExtensionDirectory);
+  removeIfExists(safariExtensionDirectory);
   cpSync(sourceDirectory, safariExtensionDirectory, {
     recursive: true,
     filter: shouldCopyExtensionPath
@@ -131,18 +181,54 @@ function createZip() {
   }
 }
 
-mkdirSync(distDirectory, { recursive: true });
-removeIfExists(zipFilePath);
-buildChromeExtension();
-buildSafariExtension();
-createZip();
+function createFirefoxZip() {
+  const result = spawnSync(
+    "zip",
+    ["-qr", firefoxZipFilePath, path.basename(firefoxExtensionDirectory)],
+    {
+      cwd: distDirectory,
+      stdio: "inherit"
+    }
+  );
 
-console.log("Built Chrome extension files:");
-for (const file of listFilesRecursively(chromeExtensionDirectory)) {
-  console.log(`- ${file}`);
+  if (result.status !== 0) {
+    throw new Error(`zip command failed with status ${result.status}`);
+  }
 }
-console.log("Built Safari extension files:");
-for (const file of listFilesRecursively(safariExtensionDirectory)) {
-  console.log(`- ${file}`);
+
+mkdirSync(distDirectory, { recursive: true });
+
+if (buildFirefoxOnly) {
+  removeIfExists(firefoxZipFilePath);
+  buildFirefoxExtension();
+  createFirefoxZip();
+
+  console.log("Built Firefox extension files:");
+  for (const file of listFilesRecursively(firefoxExtensionDirectory)) {
+    console.log(`- ${file}`);
+  }
+  console.log(`Created Firefox zip artifact: ${path.relative(repositoryRoot, firefoxZipFilePath)}`);
+} else {
+  removeIfExists(zipFilePath);
+  removeIfExists(firefoxZipFilePath);
+  buildChromeExtension();
+  buildFirefoxExtension();
+  buildSafariExtension();
+  createZip();
+  createFirefoxZip();
+
+  console.log("Built Chrome extension files:");
+  for (const file of listFilesRecursively(chromeExtensionDirectory)) {
+    console.log(`- ${file}`);
+  }
+  console.log("Built Firefox extension files:");
+  for (const file of listFilesRecursively(firefoxExtensionDirectory)) {
+    console.log(`- ${file}`);
+  }
+  console.log("Built Safari extension files:");
+  for (const file of listFilesRecursively(safariExtensionDirectory)) {
+    console.log(`- ${file}`);
+  }
+  console.log(`Created zip artifact: ${path.relative(repositoryRoot, zipFilePath)}`);
+  console.log(`Created Firefox zip artifact: ${path.relative(repositoryRoot, firefoxZipFilePath)}`);
 }
-console.log(`Created zip artifact: ${path.relative(repositoryRoot, zipFilePath)}`);
