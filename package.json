@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Browser extension that links matching YouTube videos to Nebula using public Nebula APIs.",
+  "description": "Browser extension that links matching YouTube watch and channel pages to Nebula using public Nebula APIs.",
   "scripts": {
     "build": "node scripts/build.mjs",
     "build:safari": "node scripts/build-safari.mjs",

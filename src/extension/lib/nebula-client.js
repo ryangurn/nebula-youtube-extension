@@ -122,6 +122,10 @@ export class NebulaClient {
   }
 
   async resolveMatch(context) {
+    if (context.pageType === "channel") {
+      return this.resolveChannelMatch(context);
+    }
+
     debug("resolve-start", context);
     const searchedEpisodes = await this.searchEpisodes(context.title);
     debug("searched-episodes", {
@@ -184,6 +188,25 @@ export class NebulaClient {
     }
 
     debug("resolve-finish", {
+      state: "creator_fallback",
+      creator: creatorModel.title
+    });
+    return createCreatorFallback(creatorModel);
+  }
+
+  async resolveChannelMatch(context) {
+    debug("resolve-channel-start", context);
+    const creators = this.dedupeCreators(await this.searchCreators(context.channelName));
+    debug("resolve-channel-creator-pool", creators);
+    const selectedCreator = selectBestCreatorMatch(context.channelName, creators);
+
+    if (!selectedCreator) {
+      debug("resolve-channel-finish", { state: "no_match", reason: "no-creator" });
+      return createNoMatch();
+    }
+
+    const creatorModel = await this.resolveCreatorModel(selectedCreator);
+    debug("resolve-channel-finish", {
       state: "creator_fallback",
       creator: creatorModel.title
     });

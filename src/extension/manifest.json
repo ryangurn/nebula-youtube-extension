@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Nebula Match for YouTube",
   "version": "0.1.0",
-  "description": "Adds a Nebula link on matching YouTube watch pages using public Nebula APIs.",
+  "description": "Adds Nebula links on matching YouTube watch and channel pages using public Nebula APIs.",
   "icons": {
     "16": "icons/icon-16.png",
     "32": "icons/icon-32.png",
@@ -20,7 +20,10 @@
   "content_scripts": [
     {
       "matches": [
-        "https://www.youtube.com/watch*"
+        "https://www.youtube.com/watch*",
+        "https://www.youtube.com/@*",
+        "https://www.youtube.com/channel/*",
+        "https://www.youtube.com/c/*"
       ],
       "js": [
         "lib/runtime.js",

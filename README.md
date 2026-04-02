@@ -1,6 +1,6 @@
 # Nebula YouTube Extension
 
-Browser extension that runs on YouTube watch pages and adds a Nebula CTA when the current video can be matched to public Nebula content.
+Browser extension that runs on YouTube watch and channel pages and adds a Nebula CTA when the current video or creator can be matched to public Nebula content.
 
 This extension was developed with AI assistance and human oversight.
 
@@ -10,8 +10,9 @@ If **Nebula** has concerns about this project or would prefer changes to its pre
 
 ## Features
 
-- `Watch on Nebula` when a strong Nebula video match is found
-- `View creator on Nebula` when the creator matches but the video match is ambiguous
+- `Watch on Nebula` when a strong Nebula video match is found on a watch page
+- `View creator on Nebula` when the creator matches but the video match is ambiguous on a watch page
+- `View creator on Nebula` on matching YouTube channel pages
 - No auth, cookies, or private Nebula endpoints
 - Shared WebExtension source with Chrome and Safari packaging paths
 - Packaged as a ready-to-load Chrome extension directory, zip artifact, and a Safari-compatible build artifact
@@ -106,13 +107,25 @@ Build the iOS scheme separately if you plan to ship iPhone and iPad support.
 
 - matching YouTube watch pages render `Watch on Nebula`
 - ambiguous videos render `View creator on Nebula`
+- matching YouTube channel pages render `View creator on Nebula` in the channel header action row
+- non-matching YouTube channel pages render no CTA
 - unmatched videos render no CTA
 - YouTube SPA navigation updates the CTA without a full page reload
 - Nebula links open correctly from Safari desktop and mobile contexts
 - background-to-content messaging still succeeds after Safari lifecycle pauses/restarts
 
+### Remote Debugging iPhone And iPad Safari
+
+1. On the device, enable `Settings > Safari > Advanced > Web Inspector`.
+2. On the Mac, enable `Safari > Settings > Advanced > Show Develop menu in menu bar`.
+3. Connect the device to the Mac and trust it.
+4. Open the target YouTube page in mobile Safari.
+5. In macOS Safari, open `Develop > <device name> > <YouTube tab>` to attach Web Inspector.
+6. Use the `Console` tab for content-script logs and the `Network` tab for Nebula API requests coming from the page.
+7. Use Xcode's debug console for Safari Web Extension app/extension logs, especially background-side messaging logs.
+
 ## Notes
 
-- The extension is intentionally conservative and prefers hiding the CTA over linking to the wrong Nebula video.
+- The extension is intentionally conservative and prefers hiding the CTA over linking to the wrong Nebula video or creator page.
 - Matching is powered by Nebula public JSON endpoints on `content.api.nebula.app`.
 - The shared runtime abstraction lives in `src/extension/lib/runtime.js` and is used by both the content script and the background worker.
